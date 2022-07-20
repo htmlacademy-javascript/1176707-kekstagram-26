@@ -12,8 +12,7 @@ let getRandomNumber = function(min, max) {
 // https://learn.javascript.ru/string#:~:text=Создайте%20функцию%20truncate(str%2C%20maxlength)%2C%20которая,её%20длина%20стала%20равна%20maxlength источник проверки.
 
 let checkStringLength = function(numberOfLine, MAXLENGTH) {
-    return (numberOfLine.length > MAXLENGTH) ?
-    false : true;
+    return (numberOfLine.length < MAXLENGTH) ? true : false;
 }
 
 console.log(checkStringLength(1, MAXLENGTH));

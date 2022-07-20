@@ -11,7 +11,7 @@ window.console.log(getRandomNumber(1, MAX_NUMBER));
 
 // https://learn.javascript.ru/string#:~:text=Создайте%20функцию%20truncate(str%2C%20maxlength)%2C%20которая,её%20длина%20стала%20равна%20maxlength источник проверки.
 function checkStringLength (string, maxLength) {
-  return (numberOfLine.length < MAX_LENGTH);
+  return (string.length < maxLength);
 }
 
 window.console.log(checkStringLength(1, MAX_LENGTH));

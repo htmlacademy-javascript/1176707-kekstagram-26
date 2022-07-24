@@ -23,21 +23,7 @@ const NAMES = [
   'Вера',
   'Вероника',
   'Викентий',
-  'Виктор',
-  'Виктория',
-  'Вилен',
-  'Виолетта',
-  'Виссарион',
-  'Вита',
-  'Виталий',
-  'Влад',
-  'Владимир',
-  'Владислав',
-  'Владислава',
-  'Владлен',
-  'Вольдемар',
-  'Всеволод',
-  'Вячеслав'
+  'Виктор'
 ];
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
@@ -101,9 +87,16 @@ const getPhotosComments= function () {
   }
 };
 
+const getPhotosNames= function () {
+  for(let i = 1; i <= NEED_MASSIVES; i++) {
+    PHOTOS[`photo${  i}`]['names'] = NAMES[getRandomNumber(0, MIN_LIKES)];
+  }
+};
+
 getPhotos();
 getPhotosId();
 getPhotosUrl();
 getPhotosDescription();
 getPhotosLikes();
 getPhotosComments();
+getPhotosNames();

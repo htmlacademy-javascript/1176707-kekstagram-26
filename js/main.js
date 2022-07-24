@@ -10,6 +10,37 @@ const MESSAGE = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 const COMMENTS = [];
+const NAMES = [
+  'Вадим',
+  'Валентин',
+  'Валентина',
+  'Валерий',
+  'Валерия',
+  'Ванда',
+  'Варвара',
+  'Василий',
+  'Василиса',
+  'Венера',
+  'Вениамин',
+  'Вера',
+  'Вероника',
+  'Викентий',
+  'Виктор',
+  'Виктория',
+  'Вилен',
+  'Виолетта',
+  'Виссарион',
+  'Вита',
+  'Виталий',
+  'Влад',
+  'Владимир',
+  'Владислав',
+  'Владислава',
+  'Владлен',
+  'Вольдемар',
+  'Всеволод',
+  'Вячеслав'
+];
 
 const getPhotosUrl = function () {
   for(let i = 0; i <= 25; i++) {
@@ -31,7 +62,6 @@ const getRandomNumber = (a, b) => {
 };
 
 LIKES.push(getRandomNumber(15, 200));
-console.log(LIKES);
 
 getId();
 getPhotosUrl();
@@ -41,13 +71,10 @@ const getComment = function () {
     id: ID[getRandomNumber(0,ID.length - 1)],
     avatar: `img/avatar-${getRandomNumber(0, 6)}.svg`,
     message:MESSAGE[getRandomNumber(0, MESSAGE.length - 1)],
-    name:'Алексей',
+    name:NAMES[getRandomNumber(0, NAMES.length - 1)]
   };
 };
 
 for(let i = 0; i <= 6; i++) {
   COMMENTS.push(getComment());
-}
-
-console.log(COMMENTS);
-
+};

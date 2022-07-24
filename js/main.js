@@ -9,7 +9,7 @@ const MESSAGE = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
-const COMMENTS = {};
+const COMMENTS = [];
 
 const getPhotosUrl = function () {
   for(let i = 0; i <= 25; i++) {
@@ -30,23 +30,24 @@ const getRandomNumber = (a, b) => {
   return Math.floor(result);
 };
 
+LIKES.push(getRandomNumber(15, 200));
+console.log(LIKES);
+
 getId();
 getPhotosUrl();
 
-console.log(ID);
-console.log(URL);
-console.log(LIKES);
-console.log(MESSAGE);
+const getComment = function () {
+  return {
+    id: ID[getRandomNumber(0,ID.length - 1)],
+    avatar: `img/avatar-${getRandomNumber(0, 6)}.svg`,
+    message:MESSAGE[getRandomNumber(0, MESSAGE.length - 1)],
+    name:'Алексей',
+  };
+};
 
-const getPhotoDescription = function() {
-  for(i = 0; i <= 25; i++) {
-    COMMENTS.push(
-      ID: ,
-    );
-  }
+for(let i = 0; i <= 6; i++) {
+  COMMENTS.push(getComment());
 }
-
-getPhotoDescription();
 
 console.log(COMMENTS);
 

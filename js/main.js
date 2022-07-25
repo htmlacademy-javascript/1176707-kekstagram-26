@@ -7,7 +7,6 @@ const MESSAGE = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
-const COMMENTS = [];
 const NAMES = [
   'Вадим',
   'Валентин',
@@ -47,17 +46,12 @@ const getComment = function () {
   };
 };
 
-for(let i = 0; i <= MAX_AVATARS; i++) {
-  COMMENTS.push(getComment(COMMENTS.length));
-}
-
 const getPhotoInfo = function (id) {
   return {
     id: id,
     url: `photos/${  id  }.jpg`,
     description: 'Прекрасный пейзаж.',
     likes: getRandomNumber(MIN_LIKES, MAX_LIKES),
-    names: NAMES[getRandomNumber(0, MIN_LIKES)],
     comments: Array.from({length: getRandomNumber(0,MAX_AVATARS)}, getComment)
   };
 };

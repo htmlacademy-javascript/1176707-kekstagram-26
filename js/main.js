@@ -53,20 +53,12 @@ for(let i = 0; i <= MAX_AVATARS; i++) {
 
 const getPhotoInfo = function (id) {
   return {
-    photo: {
-      id: id,
-      url: `photos/${  id  }.jpg`,
-      description: 'Прекрасный пейзаж.',
-      likes: getRandomNumber(MIN_LIKES, MAX_LIKES),
-      names: NAMES[getRandomNumber(0, MIN_LIKES)],
-      comments: {
-        comment1: COMMENTS[getRandomNumber(0, MAX_AVATARS)],
-        comment2: COMMENTS[getRandomNumber(0, MAX_AVATARS)],
-        comment3: COMMENTS[getRandomNumber(0, MAX_AVATARS)],
-        comment4: COMMENTS[getRandomNumber(0, MAX_AVATARS)],
-        comment5: COMMENTS[getRandomNumber(0, MAX_AVATARS)],
-      }
-    }
+    id: id,
+    url: `photos/${  id  }.jpg`,
+    description: 'Прекрасный пейзаж.',
+    likes: getRandomNumber(MIN_LIKES, MAX_LIKES),
+    names: NAMES[getRandomNumber(0, MIN_LIKES)],
+    comments: Array.from({length: getRandomNumber(0,MAX_AVATARS)}, getComment)
   };
 };
 

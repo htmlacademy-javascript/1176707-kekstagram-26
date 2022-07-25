@@ -38,9 +38,9 @@ const getRandomNumber = (a, b) => {
   return Math.floor(result);
 };
 
-const getComment = function (id) {
+const getComment = function () {
   return {
-    id: id,
+    id: getRandomNumber(NEED_MASSIVES,MAX_LIKES),
     avatar: `img/avatar-${getRandomNumber(0, MAX_AVATARS)}.svg`,
     message:MESSAGE[getRandomNumber(0, MESSAGE.length - 1)],
     name:NAMES[getRandomNumber(0, NAMES.length - 1)]
@@ -51,52 +51,19 @@ for(let i = 0; i <= 6; i++) {
   COMMENTS.push(getComment(COMMENTS.length));
 }
 
-const getPhotos = function () {
-  for(let i = 1; i <= NEED_MASSIVES; i++) {
-    PHOTOS[`photo${  i}`] = {};
+const getPhotoInfo = function (i) {
+  PHOTOS[`photo${  i}`] = {};
+  PHOTOS[`photo${  i}`]['id'] = i;
+  PHOTOS[`photo${  i}`]['url'] = `photos/${  i  }.jpg`;
+  PHOTOS[`photo${  i}`]['description'] = 'Прекрасный пейзаж.';
+  PHOTOS[`photo${  i}`]['likes'] = getRandomNumber(MIN_LIKES, MAX_LIKES);
+  PHOTOS[`photo${  i}`]['names'] = NAMES[getRandomNumber(0, MIN_LIKES)];
+  PHOTOS[`photo${  i}`]['comments'] = {};
+  for(let b = 0; b < MAX_AVATARS; b++) {
+    PHOTOS[`photo${  i}`]['comments'][`comment${  b}`] = COMMENTS[getRandomNumber(0, MAX_AVATARS)];
   }
 };
 
-const getPhotosId = function () {
-  for(let i = 1; i <= NEED_MASSIVES; i++) {
-    PHOTOS[`photo${  i}`]['id'] = i;
-  }
-};
-
-const getPhotosUrl = function () {
-  for(let i = 1; i <= NEED_MASSIVES; i++) {
-    PHOTOS[`photo${  i}`]['url'] = `photos/${  i  }.jpg`;
-  }
-};
-
-const getPhotosDescription = function () {
-  for(let i = 1; i <= NEED_MASSIVES; i++) {
-    PHOTOS[`photo${  i}`]['description'] = 'Прекрасный пейзаж.';
-  }
-};
-
-const getPhotosLikes = function () {
-  for(let i = 1; i <= NEED_MASSIVES; i++) {
-    PHOTOS[`photo${  i}`]['likes'] = getRandomNumber(MIN_LIKES, MAX_LIKES);
-  }
-};
-
-const getPhotosComments= function () {
-  for(let i = 1; i <= NEED_MASSIVES; i++) {
-    PHOTOS[`photo${  i}`]['comment'] = COMMENTS[getRandomNumber(0, MAX_AVATARS)];
-  }
-};
-
-const getPhotosNames= function () {
-  for(let i = 1; i <= NEED_MASSIVES; i++) {
-    PHOTOS[`photo${  i}`]['names'] = NAMES[getRandomNumber(0, MIN_LIKES)];
-  }
-};
-
-getPhotos();
-getPhotosId();
-getPhotosUrl();
-getPhotosDescription();
-getPhotosLikes();
-getPhotosComments();
-getPhotosNames();
+for(let i = 1; i <= NEED_MASSIVES; i++) {
+  getPhotoInfo(i);
+}

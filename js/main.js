@@ -29,7 +29,7 @@ const MIN_LIKES = 15;
 const MAX_LIKES = 200;
 const NEED_MASSIVES = 25;
 const MAX_AVATARS = 6;
-const PHOTOS = {};
+const PHOTOS = [];
 
 const getRandomNumber = (a, b) => {
   const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
@@ -47,23 +47,29 @@ const getComment = function () {
   };
 };
 
-for(let i = 0; i <= 6; i++) {
+for(let i = 0; i <= MAX_AVATARS; i++) {
   COMMENTS.push(getComment(COMMENTS.length));
 }
 
-const getPhotoInfo = function (i) {
-  PHOTOS[`photo${  i}`] = {};
-  PHOTOS[`photo${  i}`]['id'] = i;
-  PHOTOS[`photo${  i}`]['url'] = `photos/${  i  }.jpg`;
-  PHOTOS[`photo${  i}`]['description'] = 'Прекрасный пейзаж.';
-  PHOTOS[`photo${  i}`]['likes'] = getRandomNumber(MIN_LIKES, MAX_LIKES);
-  PHOTOS[`photo${  i}`]['names'] = NAMES[getRandomNumber(0, MIN_LIKES)];
-  PHOTOS[`photo${  i}`]['comments'] = {};
-  for(let b = 0; b < MAX_AVATARS; b++) {
-    PHOTOS[`photo${  i}`]['comments'][`comment${  b}`] = COMMENTS[getRandomNumber(0, MAX_AVATARS)];
-  }
+const getPhotoInfo = function (id) {
+  return {
+    photo: {
+      id: id,
+      url: `photos/${  id  }.jpg`,
+      description: 'Прекрасный пейзаж.',
+      likes: getRandomNumber(MIN_LIKES, MAX_LIKES),
+      names: NAMES[getRandomNumber(0, MIN_LIKES)],
+      comments: {
+        comment1: COMMENTS[getRandomNumber(0, MAX_AVATARS)],
+        comment2: COMMENTS[getRandomNumber(0, MAX_AVATARS)],
+        comment3: COMMENTS[getRandomNumber(0, MAX_AVATARS)],
+        comment4: COMMENTS[getRandomNumber(0, MAX_AVATARS)],
+        comment5: COMMENTS[getRandomNumber(0, MAX_AVATARS)],
+      }
+    }
+  };
 };
 
 for(let i = 1; i <= NEED_MASSIVES; i++) {
-  getPhotoInfo(i);
+  PHOTOS.push(getPhotoInfo(i));
 }

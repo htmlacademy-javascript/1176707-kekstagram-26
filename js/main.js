@@ -59,3 +59,4 @@ const getPhotoInfo = function (id) {
 for(let i = 1; i <= NEED_MASSIVES; i++) {
   PHOTOS.push(getPhotoInfo(i));
 }
+

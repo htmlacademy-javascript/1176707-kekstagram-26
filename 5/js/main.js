@@ -1,6 +1,4 @@
-const ID = [];
-const URL = [];
-const LIKES = [];
+
 const MESSAGE = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -9,7 +7,6 @@ const MESSAGE = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
-const COMMENTS = [];
 const NAMES = [
   'Вадим',
   'Валентин',
@@ -25,34 +22,13 @@ const NAMES = [
   'Вера',
   'Вероника',
   'Викентий',
-  'Виктор',
-  'Виктория',
-  'Вилен',
-  'Виолетта',
-  'Виссарион',
-  'Вита',
-  'Виталий',
-  'Влад',
-  'Владимир',
-  'Владислав',
-  'Владислава',
-  'Владлен',
-  'Вольдемар',
-  'Всеволод',
-  'Вячеслав'
+  'Виктор'
 ];
-
-const getPhotosUrl = function () {
-  for(let i = 0; i <= 25; i++) {
-    URL.push(`photos/${  i  }.jpg`);
-  }
-};
-
-const getId = function () {
-  for(let i = 0; i < 25; i++) {
-    ID.push(1 + i);
-  }
-};
+const MIN_LIKES = 15;
+const MAX_LIKES = 200;
+const NEED_MASSIVES = 25;
+const MAX_AVATARS = 6;
+const PHOTOS = [];
 
 const getRandomNumber = (a, b) => {
   const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
@@ -61,20 +37,25 @@ const getRandomNumber = (a, b) => {
   return Math.floor(result);
 };
 
-LIKES.push(getRandomNumber(15, 200));
-
-getId();
-getPhotosUrl();
-
 const getComment = function () {
   return {
-    id: ID[getRandomNumber(0,ID.length - 1)],
-    avatar: `img/avatar-${getRandomNumber(0, 6)}.svg`,
+    id: getRandomNumber(NEED_MASSIVES,MAX_LIKES),
+    avatar: `img/avatar-${getRandomNumber(0, MAX_AVATARS)}.svg`,
     message:MESSAGE[getRandomNumber(0, MESSAGE.length - 1)],
     name:NAMES[getRandomNumber(0, NAMES.length - 1)]
   };
 };
 
-for(let i = 0; i <= 6; i++) {
-  COMMENTS.push(getComment());
+const getPhotoInfo = function (id) {
+  return {
+    id: id,
+    url: `photos/${  id  }.jpg`,
+    description: 'Прекрасный пейзаж.',
+    likes: getRandomNumber(MIN_LIKES, MAX_LIKES),
+    comments: Array.from({length: getRandomNumber(0,MAX_AVATARS)}, getComment)
+  };
 };
+
+for(let i = 1; i <= NEED_MASSIVES; i++) {
+  PHOTOS.push(getPhotoInfo(i));
+}

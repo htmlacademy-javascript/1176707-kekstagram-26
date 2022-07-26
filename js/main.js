@@ -1,4 +1,3 @@
-
 const MESSAGE = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -59,4 +58,3 @@ const getPhotoInfo = function (id) {
 for(let i = 1; i <= NEED_MASSIVES; i++) {
   PHOTOS.push(getPhotoInfo(i));
 }
-

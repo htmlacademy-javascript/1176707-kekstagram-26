@@ -1,4 +1,4 @@
-import {MESSAGE, NAMES, MIN_LIKES, MAX_AVATARS, MAX_LIKES, NEED_MASSIVES} from './data';
+import {MESSAGE, NAMES, MIN_LIKES, MAX_AVATARS, MAX_LIKES, NEED_MASSIVES} from './data.js';
 
 const PHOTOS = [];
 

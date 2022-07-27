@@ -27,13 +27,5 @@ const MIN_LIKES = 15;
 const MAX_LIKES = 200;
 const NEED_MASSIVES = 25;
 const MAX_AVATARS = 6;
-const PHOTOS = [];
 
-const getRandomNumber = (a, b) => {
-  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
-  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-};
-
-export {MESSAGE, NAMES, MIN_LIKES, MAX_AVATARS, MAX_LIKES, NEED_MASSIVES, PHOTOS, getRandomNumber};
+export {MESSAGE, NAMES, MIN_LIKES, MAX_AVATARS, MAX_LIKES, NEED_MASSIVES};

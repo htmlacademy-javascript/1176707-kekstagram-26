@@ -1,4 +1,13 @@
-import { getRandomNumber, NEED_MASSIVES, MAX_LIKES, MAX_AVATARS, MESSAGE, NAMES, MIN_LIKES, PHOTOS} from './data.js';
+import {MESSAGE, NAMES, MIN_LIKES, MAX_AVATARS, MAX_LIKES, NEED_MASSIVES} from './data';
+
+const PHOTOS = [];
+
+const getRandomNumber = (a, b) => {
+  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
+  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
+};
 
 const getComment = function () {
   return {
@@ -23,4 +32,4 @@ for(let i = 1; i <= NEED_MASSIVES; i++) {
   PHOTOS.push(getPhotoInfo(i));
 }
 
-export {getPhotoInfo};
+console.log(PHOTOS);

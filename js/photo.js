@@ -10,7 +10,7 @@ const getRandomNumber = (a, b) => {
 const getComment = function () {
   return {
     id: getRandomNumber(NEED_MASSIVES,MAX_LIKES),
-    avatar: `img/avatar-${getRandomNumber(0, MAX_AVATARS)}.svg`,
+    avatar: `img/avatar-${getRandomNumber(1, MAX_AVATARS)}.svg`,
     message:MESSAGE[getRandomNumber(0, MESSAGE.length - 1)],
     name:NAMES[getRandomNumber(0, NAMES.length - 1)]
   };
@@ -22,8 +22,8 @@ const getPhotoInfo = function (id) {
     url: `photos/${  id  }.jpg`,
     description: 'Прекрасный пейзаж.',
     likes: getRandomNumber(MIN_LIKES, MAX_LIKES),
-    comments: Array.from({length: getRandomNumber(0,MAX_AVATARS)}, getComment)
+    comments: Array.from({length: getRandomNumber(1,MAX_AVATARS)}, getComment)
   };
 };
 
-export {getPhotoInfo};
+export {getPhotoInfo, getRandomNumber};

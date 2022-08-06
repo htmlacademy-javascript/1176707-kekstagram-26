@@ -1,5 +1,5 @@
 import { NEED_MASSIVES } from './data.js';
-import {getPhotoInfo} from './photo.js';
+import { getPhotoInfo } from './photo.js';
 
 const userVisibleMiniature = document.querySelector('.pictures__title');
 userVisibleMiniature.classList.remove('visually-hidden');
@@ -27,4 +27,4 @@ PHOTOS.forEach (({url, likes, comments}) => {
 
 pictures.append(photoFragment);
 
-export {pictures};
+export { pictures, PHOTOS };

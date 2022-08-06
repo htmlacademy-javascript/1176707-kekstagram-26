@@ -1,3 +1,5 @@
 import './photo.js';
 import './data.js';
-import './miniature';
+import './miniature.js';
+import './fullimg.js';
+

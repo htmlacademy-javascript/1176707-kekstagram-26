@@ -26,4 +26,4 @@ const getPhotoInfo = function (id) {
   };
 };
 
-export {getPhotoInfo};
+export {getPhotoInfo, getRandomNumber};

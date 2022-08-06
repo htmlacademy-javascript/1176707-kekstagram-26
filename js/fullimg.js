@@ -1,19 +1,21 @@
 import { pictures, PHOTOS } from './miniature.js';
-/*
-1. Добавить обработчик событий на миниатюру.
-2. В обработчике удалять класс hidden у userVisible.
-3. Заполнять userVisible информацией.
-4. Добавлять класс hidden для .social__comment-count и .comments-loader.
-5. Добавить класс modal-open для body.
-6. Добавить обработчик событий для кнопки закрытия на клик и клавишу ESC.
-*/
 
 const userVisible = document.querySelector('.big-picture');
 const modalOpen = document.querySelector('body');
 const picturesList = pictures;
 const picture = picturesList.querySelectorAll('.picture');
 const closeButton = document.querySelector('.big-picture__cancel');
+const comentList = userVisible.querySelector('.social__comments');
+const comment = comentList.querySelector('.social__comment');
 
+const createNewComment = function (photo, element) {
+  for(let i = 0; i < photo.comments.length; i++) {
+    const newComment = comment.cloneNode(true);
+    newComment.querySelector('.social__picture').src = photo.comments[i].avatar;
+    newComment.querySelector('.social__text').textContent = photo.comments[i].message;
+    element.append(newComment);
+  }
+};
 
 for(let i = 0; i < picture.length; i++) {
   picture[i].addEventListener('click', (evt) => {
@@ -25,7 +27,10 @@ for(let i = 0; i < picture.length; i++) {
     userVisible.querySelector('.likes-count').textContent = PHOTOS[i].likes;
     userVisible.querySelector('.comments-count').textContent = PHOTOS[i].comments.length;
     userVisible.querySelector('.social__caption').textContent = PHOTOS[i].description;
-    userVisible.querySelector('.social__comments');
+    createNewComment(PHOTOS[i], comentList);
+
+    userVisible.querySelector('.social__comment-count').classList.add('hidden');
+    userVisible.querySelector('.comments-loader').classList.add('hidden');
   });
 }
 

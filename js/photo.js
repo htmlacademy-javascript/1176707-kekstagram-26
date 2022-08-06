@@ -22,7 +22,7 @@ const getPhotoInfo = function (id) {
     url: `photos/${  id  }.jpg`,
     description: 'Прекрасный пейзаж.',
     likes: getRandomNumber(MIN_LIKES, MAX_LIKES),
-    comments: Array.from({length: getRandomNumber(0,MAX_AVATARS)}, getComment)
+    comments: Array.from({length: getRandomNumber(1,MAX_AVATARS)}, getComment)
   };
 };
 
